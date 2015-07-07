@@ -49,7 +49,7 @@ public class ConnectorController
 		}
 		catch (Exception e)
 		{
-			throw new IOException(e.getMessage());
+			throw new IOException("Failed to parse multipart content", e);
 		}
 
 		String cmd = request.getParameter("cmd");
