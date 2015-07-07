@@ -1,6 +1,5 @@
 package cn.bluejoe.elfinder.localfs;
 
-import hidden.org.codehaus.plexus.util.FileUtils;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -15,6 +14,8 @@ import java.util.List;
 import cn.bluejoe.elfinder.service.FsItem;
 import cn.bluejoe.elfinder.service.FsVolume;
 import cn.bluejoe.elfinder.util.MimeTypesUtils;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 public class LocalFsVolume implements FsVolume
 {
@@ -95,7 +96,7 @@ public class LocalFsVolume implements FsVolume
 		if (file.isDirectory())
 			return "directory";
 
-		String ext = FileUtils.getExtension(file.getName());
+		String ext = FilenameUtils.getExtension(file.getName());
 		if (ext != null && !ext.isEmpty())
 		{
 			String mimeType = MimeTypesUtils.getMimeType(ext);
